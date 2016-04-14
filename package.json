@@ -1,0 +1,35 @@
+{
+  "name": "abacus",
+  "version": "0.1.0",
+  "description": "Abacus Chat Bot for Facebook Messenger",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "start": "bash scripts/run.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devchakraborty/abacus.git"
+  },
+  "keywords": [
+    "abacus",
+    "facebook",
+    "messenger",
+    "chat",
+    "bot"
+  ],
+  "author": "Dev Chakraborty (me@devc.ca)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devchakraborty/abacus/issues"
+  },
+  "homepage": "https://github.com/devchakraborty/abacus#readme",
+  "dependencies": {
+    "babel-cli": "^6.7.5",
+    "babel-preset-es2015": "^6.6.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mathjs": "^3.1.4",
+    "request": "^2.71.0"
+  }
+}
