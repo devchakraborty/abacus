@@ -40,6 +40,7 @@ app.get('/messages-hook', function(req, res) {
 
 // Message received
 app.post('/messages-hook', function(req, res) {
+  console.log(JSON.stringify(req.body))
   let message_events = req.body.entry[0].messaging
   for (let event of message_events) {
     let sender = event.sender.id
