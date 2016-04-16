@@ -56,6 +56,11 @@ app.post('/messages-hook', function(req, res) {
       } catch (err) {
         result = 'Sorry, I didn\'t quite understand your input.'
       }
+
+      if (typeof(result) === 'boolean') {
+        result = result ? 'True' : 'False'
+      }
+
       messengerClient.send(sender, result, function(err) {
         if (err != null) {
           console.warn(`WARNING: Failed to send [ ${result} ] to [ ${sender} ]`)
