@@ -31,7 +31,7 @@ app.get('/messages-hook', function(req, res) {
   if (req.query['hub.verify_token'] !== VALIDATION_TOKEN) {
     res.status(403).send('Error, wrong validation token')
   }
-  
+
   console.log('Received webhook registration from Facebook');
 
   res.send(req.query['hub.challenge'])
@@ -48,7 +48,13 @@ app.post('/messages-hook', function(req, res) {
 
       console.log(`Received [ ${text} ] from [ ${sender} ]`)
 
-      let result = math.eval(text)
+      var result
+
+      try {
+        result = math.eval(text)
+      } catch (err) {
+        result = 'Sorry, I didn\'t quite understand your input.'
+      }
       messengerClient.send(sender, result, function(err) {
         if (err != null) {
           console.warn(`WARNING: Failed to send [ ${result} ] to [ ${sender} ]`)
